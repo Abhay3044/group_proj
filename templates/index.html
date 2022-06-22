@@ -10,8 +10,8 @@
   <style>
   
       body {
-       background-image: url('static/images/Capture.JPG');
-      background-image: url('static/images/2.jpg');
+
+      background-color: aqua;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -30,7 +30,7 @@
     text-decoration: none;
     background: #eb1111;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 4px solid #43913c !important;
     display: inline-block;
     transition: all 0.4s ease 0s;
@@ -38,7 +38,7 @@
 
     .button_css:hover {
     color: #ffffff !important;
-    background: #ffff24;
+    background:green;
     border-color: #f6b93b !important;
     transition: all 0.4s ease 0s;
     }
@@ -74,15 +74,40 @@
     <center>
     <form action="{{ url_for('predict')}}"method="post">
         <h1><strong>Enter the Information of House to Predict the Price</strong></h1>
-    	<input align="center" type="number" name="bhk" placeholder="BHK" required="required" width="100" height="50" step=".01" style="height:30px; width:250px; color=red;" /><br>
-    	<input align="center" type="number" name="balcony" placeholder="Balcony" required="required" width="48" height="10" step=".01" style="height:30px; width:250px;"/><br>
+
+<!--         <select name="house-names" id="house-names">-->
+<!--        <option value="bungalow">Bungalow</option>-->
+<!--        <option value="flat">Flat</option>-->
+<!--        <option value="house">House</option>-->
+<!--      </select>-->
+<!--        <br>-->
+
+<!--         <input align="center" type="number" name="bhk" placeholder="type" required="required" width="100" height="50" step=".01" style="height:30px; width:250px; color=red;" /><br>-->
+
+
+
+<!--        <input align="center" type="number" name="bhk" placeholder="BHK" required="required" width="100" height="50" step=".01" style="height:30px; width:250px; color=red;" /><br>-->
+
+        <select name="bhk" id="House1 Location" type="number" step=".01" placeholder="House Location" style="height:30px; width:255px;">
+        <option value="2">1</option>
+        <option value="bhk">1</option>
+        <option value="bhk">1</option>
+        <option style="color: rgb(230, 218, 218);" value="" selected>Chose Location</option>
+      </select><br>
+
+        <input align="center" type="number" name="balcony" placeholder="Balcony" required="required" width="48" height="10" step=".01" style="height:30px; width:250px;"/><br>
     	<input align="center" type="number" name="total_sqft_int" placeholder="Total Squre Foot" required="required" width="48" height="10" step=".01" style="height:30px; width:250px;"/><br>
         <input align="center" type="number" name="bathrooms" placeholder="Bathrooms" required="required" width="48" height="10" step=".01" style="height:30px; width:250px;"/><br>
     	<input align="center" type="number" name="price_per_sqft" placeholder="Price Per Squre Foot" required="required" width="48" height="10" step=".01" style="height:30px; width:250px;"/><br>
     	<input type="text" name="area_type" placeholder="Area Type" required="required" style="height:30px; width:250px;" /><br>
     	<input type="text" name="availability" placeholder="House Availability" required="required" style="height:30px; width:250px;" /><br>
-    	<input type="text" name="location" placeholder="House Location" required="required" style="height:30px; width:250px;" />
-
+<!--    	<input type="text" name="location" placeholder="House Location" required="required" style="height:30px; width:250px;" />-->
+         <select name="location" id="House Location" placeholder="House Location" style="height:30px; width:255px;">
+        <option value="location">Whitefield</option>
+        <option value="location">Flat</option>
+        <option value="location">Home</option>
+        <option style="color: rgb(230, 218, 218);" value="" selected>Chose Location</option>
+      </select><br>
     	<br>
         <br>
 
@@ -97,7 +122,7 @@
    <!-- Show predicted output using ML model -->
    <div>
        <center>
-   <h2>{{ prediction_text }}</h2>
+   <h2 style="background: aqua ;color:red">{{ prediction_text }}</h2>
        </center>
    </div>
 
